@@ -1,0 +1,8 @@
+language: csharp
+dist: trusty
+sudo: required
+mono: none
+dotnet: 1.0.0-preview2-003131
+script:
+  - dotnet test test/coreArgs.test.csproj
+  - dotnet build src/coreArgs.csproj
