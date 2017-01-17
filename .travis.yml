@@ -1,15 +1,13 @@
 language: csharp
 dist: trusty
 sudo: required
-mono: none
-dotnet: 1.0.0-preview2-003131
 before_script:
   - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
   - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-  - sudo apt-get update
+  - sudo apt-get update -qq
   - sudo apt-get install dotnet-dev-1.0.0-preview4-004233
 script:
-  - dotnet restore "src"
-  - dotnet restore "test"
+  - dotnet restore src/coreArgs.csproj
+  - dotnet restore test/coreArgs.test.csproj
   - dotnet test test/coreArgs.test.csproj
   - dotnet build src/coreArgs.csproj
