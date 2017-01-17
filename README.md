@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Geaz/coreArgs.svg?branch=master)](https://travis-ci.org/Geaz/coreArgs)
+
 # coreArgs
 **coreArgs** is a command line arguments parser for *.NET Standard*.
 It was created in need of a command line parser which is able to parse arguments into
