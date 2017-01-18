@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Geaz/coreArgs.svg?branch=master)](https://travis-ci.org/Geaz/coreArgs)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Geaz/coreArgs/master/LICENSE)
 
 (Notes to me: Feature ready - tests all positive - write more tests - some refactorings and documentation writing necessary - nuget creation outstanding)
 
