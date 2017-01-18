@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using coreArgs.Parser;
 
-namespace Tests
+namespace coreArgs.Tests
 {
     [TestClass]
     public class DictionaryParserTests

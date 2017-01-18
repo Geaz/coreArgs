@@ -11,6 +11,7 @@
 
   <ItemGroup>    
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
     <PackageReference Include="NETStandard.Library" Version="1.6" />
   </ItemGroup>
