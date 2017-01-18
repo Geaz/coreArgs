@@ -2,7 +2,7 @@ namespace coreArgs
 {
     ///<summary>
     /// Defines the error type for **coreArgs**.
-    /// Every error in the <c>ParserResult<T></c> has a message and an <c>ErrorType</c>.
+    /// Every error in the <c>ParserResult&lt;T&gt;</c> has a message and an <c>ErrorType</c>.
     /// During the parsing it is possible, that multiple errors occure. For example,
     /// if more than one required option is missing.
     ///</summary>
@@ -18,7 +18,7 @@ namespace coreArgs
         public ParserErrorType ErrorType { get; set; }
     }
 
-    ///<summar>
+    ///<summary>
     /// The possible error types for the <c>ParserError</c>.
     ///</summary>
     public enum ParserErrorType 

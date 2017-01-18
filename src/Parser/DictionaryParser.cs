@@ -4,7 +4,7 @@ namespace coreArgs.Parser
 {    
     ///<summary>
     /// The <c>DictionaryParser</c> parser is the first step in parsing the command line arguments.
-    /// It is responsible for parsing each argument into a <c>Dictionary<string, string></c>.
+    /// It is responsible for parsing each argument into a <c>Dictionary&lt;string, string&gt;</c>.
     /// Some examples:
     /// 
     /// - An argument like **--option text** is parsed as **Key:** *option*, **Value:** *text*
