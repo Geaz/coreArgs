@@ -18,7 +18,7 @@ Use NuGet to install the [coreArgs NuGet (not available - wait until first versi
 ## Usage
 
 Create a class with your needed options.
-```
+```csharp
 using coreArgs;
 
 public class Options
@@ -54,7 +54,7 @@ public class Options
 ```
 
 And parse it with the **coreArgs** parser.
-```
+```csharp
 using coreArgs;
 using coreArgs.Extensions;
 
