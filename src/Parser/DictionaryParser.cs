@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 
 namespace coreArgs.Parser
@@ -30,7 +31,7 @@ namespace coreArgs.Parser
             // Now we iterate through all arguments and make decisions about each element,
             // based on the previous argument (possibleOption).                        
             var possibleOption = string.Empty;
-            foreach(var arg in args)
+            foreach(var arg in args.Where(a => !string.IsNullOrEmpty(a)))
             {
                 // If the current argument starts with a "-" and there is no "possibleOption" saved,
                 // it could be a "boolOption" or "option" (string, int, double etc. we don't make and decisions

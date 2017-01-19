@@ -38,7 +38,7 @@ namespace coreArgs.Attributes
         /// <summary>
         /// Gets the <c>char</c> which identifies the option in the command line arguments.
         /// </summary>
-        public char ShortOption { get; }
+        public char? ShortOption { get; }
 
         /// <summary>
         /// Gets the <c>string</c> which identifies the option in the command line arguments.
