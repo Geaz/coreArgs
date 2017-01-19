@@ -1,8 +1,6 @@
 using System;
 using System.Linq;
-using System.Dynamic;
 using System.Reflection;
-using System.Globalization;
 using System.Collections.Generic;
 
 using coreArgs.Attributes;
@@ -12,6 +10,13 @@ namespace coreArgs.Parser
     internal class ObjectParser<T>
     {
         private ParserResult<T> _parserResult;
+
+        private readonly TypeParser _typeParser;
+
+        public ObjectParser()
+        {
+            _typeParser = new TypeParser();
+        }
 
         public ParserResult<T> MapArgumentsIntoObject(Dictionary<string, string> arguments)
         {
@@ -39,8 +44,10 @@ namespace coreArgs.Parser
                         if(optionAttribute != null && (optionAttribute.ShortOption.ToString() == argument.Key || optionAttribute.LongOption == argument.Key))
                         {                     
                             var propertyType = property.PropertyType;
-                            var typedValue = Parse(propertyType, argument.Value);
-                            property.SetValue(options, typedValue);
+                            var typeParserResult = _typeParser.Parse(propertyType, argument.Value);
+
+                            if (typeParserResult.Error != null) _parserResult.Errors.Add(typeParserResult.Error);
+                            else property.SetValue(options, typeParserResult.Value);
 
                             argumentHandled = true;
                             break;
@@ -110,67 +117,6 @@ namespace coreArgs.Parser
                 remainingOptionsProperty.SetValue(options, remainingOptions);
             }   
             return remainingOptions;
-        }
-
-        private object Parse(Type type, string value)
-        {
-            object returnValue = value;
-            try
-            {               
-                if(type.Name == typeof(List<>).Name)
-                {
-                    var parseMethod = this.GetType().GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
-                                        .Single(m => m.Name == "Parse" && m.GetGenericArguments().Length > 0);
-                    parseMethod = parseMethod.MakeGenericMethod(type.GetGenericArguments()[0]);
-
-                    returnValue = parseMethod.Invoke(this, new object[] { value });
-                }
-                else if(type != typeof(string))
-                {
-                    var parseCultureVariant = type.GetMethod("Parse", new[] {typeof(string), typeof(CultureInfo)});
-                    var parse = type.GetMethod("Parse", new[] {typeof(string)});
-                    if(parseCultureVariant == null && parse == null)
-                    {
-                        _parserResult.Errors.Add(
-                            new ParserError(ParserErrorType.ValueParseError, $"No parsing method found for type '{type.Name}'!")
-                        );
-                    }
-                    else
-                    {
-                        returnValue = parseCultureVariant != null 
-                                    ? parseCultureVariant.Invoke(null, new object[] { value, CultureInfo.InvariantCulture })
-                                    : parse.Invoke(null, new object[] { value });
-                    }
-                }                
-            }
-            catch (Exception ex) when (ex.InnerException != null)
-            {
-                _parserResult.Errors.Add(
-                    new ParserError(ParserErrorType.ValueParseError,
-                                    $"Couldn't parse '{value}' to type '{type.Name}'. Inner Exception: {ex.InnerException.Message}")
-                );
-            }
-            catch (Exception ex)
-            {
-                _parserResult.Errors.Add(
-                    new ParserError(ParserErrorType.ValueParseError,
-                                    $"Couldn't parse '{value}' to type '{type.Name}'. Exception: {ex.Message}")
-                );
-            }
-            return returnValue;
-        }
-
-        private List<TK> Parse<TK>(string values)
-        {
-            var valueList = new List<TK>();
-
-            var singleValues = values.Split(new [] {','}, StringSplitOptions.RemoveEmptyEntries);
-            foreach(var singleValue in singleValues)
-            {
-                valueList.Add((TK)Parse(typeof(TK), singleValue.Trim()));
-            }
-
-            return valueList;
         }
     }
 }
