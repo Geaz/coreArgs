@@ -31,5 +31,15 @@ namespace coreArgs
             }
             return result;
         }
+
+        /// <summary>
+        /// Returns the help text for the given option type.
+        /// </summary>
+        /// <typeparam name="T">Type which defines some option properties.</typeparam>
+        /// <returns><c>string</c> containing the help text.</returns>
+        public static string GetHelpText<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,6 +7,13 @@ namespace coreArgs.Attributes
     ///</summary>
     public class OptionAttribute : Attribute
     {
+        /// <summary>
+        /// Constructor to mark a property with a **shortOption** and **longOption**.
+        /// </summary>
+        /// <param name="shortOption">Character which identifies the option in the command line arguments.</param>
+        /// <param name="longOption">String which identifies the option in the command line arguments.</param>
+        /// <param name="helpText">The help text to get with the <see cref="ArgsParser.GetHelpText{T}"/> method.</param>
+        /// <param name="required">Define, if the option is required or not. Default is false.</param>
         public OptionAttribute(char shortOption, string longOption, string helpText, bool required = false)
         {
             ShortOption = shortOption;
@@ -15,6 +22,12 @@ namespace coreArgs.Attributes
             Required = required;
         }
 
+        /// <summary>
+        /// Constructor to mark a property with a **longOption**.
+        /// </summary>
+        /// <param name="longOption">String which identifies the option in the command line arguments.</param>
+        /// <param name="helpText">The help text to get with the <see cref="ArgsParser.GetHelpText{T}"/> method.</param>
+        /// <param name="required">Define, if the option is required or not. Default is false.</param>
         public OptionAttribute(string longOption, string helpText, bool required = false)
         {
             LongOption = longOption;
@@ -22,10 +35,24 @@ namespace coreArgs.Attributes
             Required = required;
         }
 
-        public char ShortOption { get; set; }
-        public string LongOption { get; set; }
+        /// <summary>
+        /// Gets the <c>char</c> which identifies the option in the command line arguments.
+        /// </summary>
+        public char ShortOption { get; }
 
-        public string HelpText { get; set; }
-        public bool Required { get; set; }
+        /// <summary>
+        /// Gets the <c>string</c> which identifies the option in the command line arguments.
+        /// </summary>
+        public string LongOption { get; }
+
+        /// <summary>
+        /// Gets the help text for this option.
+        /// </summary>
+        public string HelpText { get; }
+
+        /// <summary>
+        /// Returns true, if the option is required. False otherwise.
+        /// </summary>
+        public bool Required { get; }
     }
 }
