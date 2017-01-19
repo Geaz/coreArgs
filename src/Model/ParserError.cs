@@ -1,4 +1,4 @@
-namespace coreArgs
+namespace coreArgs.Model
 {
     ///<summary>
     /// Defines the error type for **coreArgs**.

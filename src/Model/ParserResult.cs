@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace coreArgs.Parser
+namespace coreArgs.Model
 {
     ///<summary>
     /// The type to hold the results of the **coreArgs** <c>ArgsParser</c>.

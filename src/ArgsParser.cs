@@ -1,4 +1,6 @@
 ﻿using System;
+
+using coreArgs.Model;
 using coreArgs.Parser;
 
 namespace coreArgs

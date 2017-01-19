@@ -2,7 +2,7 @@ using System.Dynamic;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace coreArgs
+namespace coreArgs.Model
 {
     ///<summary>
     /// This class provides a custom dynamic object for **coreArgs**.

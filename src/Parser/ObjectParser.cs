@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 
+using coreArgs.Model;
 using coreArgs.Attributes;
 
 namespace coreArgs.Parser

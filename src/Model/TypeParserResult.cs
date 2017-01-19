@@ -1,4 +1,4 @@
-﻿namespace coreArgs.Parser
+﻿namespace coreArgs.Model
 {
     public class TypeParserResult
     {

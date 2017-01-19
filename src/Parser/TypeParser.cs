@@ -4,6 +4,8 @@ using System.Reflection;
 using System.Globalization;
 using System.Collections.Generic;
 
+using coreArgs.Model;
+
 namespace coreArgs.Parser
 {
     public class TypeParser
