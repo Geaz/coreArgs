@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Geaz/coreArgs.svg?branch=master)](https://travis-ci.org/Geaz/coreArgs)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Geaz/coreArgs/master/LICENSE)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/geaz84/coreArgs)
+[![Gitter](https://badges.gitter.im/geaz84/coreArgs.svg)](https://gitter.im/geaz84/coreArgs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 (Notes to me: Feature ready (just help text missing) - tests all positive - write more tests - some refactorings and documentation writing necessary - nuget creation outstanding)
 
