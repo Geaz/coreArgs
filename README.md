@@ -2,7 +2,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Geaz/coreArgs/master/LICENSE)
 [![Gitter](https://badges.gitter.im/geaz84/coreArgs.svg)](https://gitter.im/geaz84/coreArgs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-(Notes to me: Feature ready (just help text missing) - tests all positive - write more tests - some refactorings and documentation writing necessary - nuget creation outstanding)
+(Notes to me: some refactorings and documentation writing necessary - nuget creation outstanding)
 
 # coreArgs
 **coreArgs** is a command line arguments parser for *.NET Standard*.
