@@ -8,16 +8,10 @@ using coreArgs.Attributes;
 
 namespace coreArgs.Parser
 {
-    internal class ObjectParser<T>
+    public class ObjectParser<T>
     {
         private ParserResult<T> _parserResult;
-
-        private readonly TypeParser _typeParser;
-
-        public ObjectParser()
-        {
-            _typeParser = new TypeParser();
-        }
+        private readonly TypeParser _typeParser = new TypeParser();
 
         public ParserResult<T> MapArgumentsIntoObject(Dictionary<string, string> arguments)
         {
@@ -67,32 +61,13 @@ namespace coreArgs.Parser
             return _parserResult;
         }
 
-        private void CheckRequiredProperties(T options, PropertyInfo[] properties)
-        {
-            foreach(var property in properties)
-            {
-                var optionAttr = property.GetCustomAttribute<OptionAttribute>();
-                if(optionAttr != null && optionAttr.Required)
-                {
-                    var optionValue = property.GetValue(options);
-                    if(optionValue == null) 
-                    {
-                        _parserResult.Errors.Add(
-                            new ParserError(ParserErrorType.RequiredPropertyNotSet,
-                                            $"Property '{property.Name}' is required, but not set!")
-                        );
-                    }
-                }
-            }
-        }
-
         private List<string> GetAndSetBinList(T options, PropertyInfo[] properties)
         {
             List<string> binList = null;
             var binOptionProperty = properties.FirstOrDefault(p => p.GetCustomAttribute<BinOptionsAttribute>() != null);
             if(binOptionProperty != null)
             {
-                if(binOptionProperty.PropertyType.Name != typeof(List<>).Name) 
+                if(binOptionProperty.PropertyType != typeof(List<string>)) 
                 {
                     _parserResult.Errors.Add(
                         new ParserError(ParserErrorType.WrongPropertyType, 
@@ -118,6 +93,25 @@ namespace coreArgs.Parser
                 remainingOptionsProperty.SetValue(options, remainingOptions);
             }   
             return remainingOptions;
+        }
+        
+        private void CheckRequiredProperties(T options, PropertyInfo[] properties)
+        {
+            foreach (var property in properties)
+            {
+                var optionAttr = property.GetCustomAttribute<OptionAttribute>();
+                if (optionAttr != null && optionAttr.Required)
+                {
+                    var optionValue = property.GetValue(options);
+                    if (optionValue == null)
+                    {
+                        _parserResult.Errors.Add(
+                            new ParserError(ParserErrorType.RequiredPropertyNotSet,
+                                            $"Property '{property.Name}' is required, but not set!")
+                        );
+                    }
+                }
+            }
         }
     }
 }

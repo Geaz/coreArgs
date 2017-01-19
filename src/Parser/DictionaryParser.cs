@@ -15,6 +15,11 @@ namespace coreArgs.Parser
     ///</summary>
     public class DictionaryParser
     {
+        /// <summary>
+        /// Parses the given <paramref name="args"/> into a <c>Dictionary</c>.
+        /// </summary>
+        /// <param name="args">A <c>string[]</c> containing all args</param>
+        /// <returns>A dictionary where the **Key** is the option name and the **Value** is the option value.</returns>
         public Dictionary<string, string> ParseArgumentsIntoDic(string[] args)
         {
             var argumentsDictionary = new Dictionary<string, string>();
