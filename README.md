@@ -68,7 +68,7 @@ public class ParseTest
         {
             // Do something in case of errors
             // for example show the help text
-            Console.Write(ArgsParser.GetHelpText());
+            Console.Write(ArgsParser.GetHelpText<Options>());
         }
         else
         {
