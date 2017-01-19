@@ -63,10 +63,12 @@ public class ParseTest
     //Arguments: whatsThat andThat --longoption test -b --noOption "This was not defined in option class"
     static int Main(string[] args)
     { 
-        var result = Parser.DefaultParser.Parse<Options>(args);
+        var result = ArgsParser.Parse<Options>(args);
         if(result.Errors.Count > 0)
         {
             // Do something in case of errors
+            // for example show the help text
+            Console.Write(ArgsParser.GetHelpText());
         }
         else
         {
