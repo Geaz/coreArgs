@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.org/geaz/coreArgs.svg?branch=master)](https://travis-ci.org/geaz/coreArgs)
+[![NuGet Badge](https://buildstats.info/nuget/nunit)](https://www.nuget.org/packages/coreArgs/1.0.0)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Geaz/coreArgs/master/LICENSE)
 [![Gitter](https://badges.gitter.im/geaz84/coreArgs.svg)](https://gitter.im/geaz84/coreArgs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-(Notes to me: some refactorings and documentation writing necessary - nuget creation outstanding)
 
 # coreArgs
 **coreArgs** is a command line arguments parser for *.NET Standard*.
@@ -13,13 +12,13 @@ This behaviour was needed for [coreDox](http://github.com/geaz/coreDox).
 
 ## Installation
 
-Use NuGet to install the [coreArgs NuGet (not available - wait until first version)](http://google.de).
+Use NuGet to install the [coreArgs NuGet](https://www.nuget.org/packages/coreArgs/1.0.0).
 
 ## Usage
 
 Create a class with your needed options.
 ```csharp
-using coreArgs;
+using coreArgs.Attributes;
 
 public class Options
 {
@@ -56,7 +55,7 @@ public class Options
 And parse it with the **coreArgs** parser.
 ```csharp
 using coreArgs;
-using coreArgs.Extensions;
+using coreArgs.Model;
 
 public class ParseTest
 {
