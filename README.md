@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/geaz/coreArgs.svg?branch=master)](https://travis-ci.org/geaz/coreArgs)
-[![NuGet Badge](https://buildstats.info/nuget/nunit)](https://www.nuget.org/packages/coreArgs/1.0.0)
+[![NuGet Badge](https://buildstats.info/nuget/coreArgs)](https://www.nuget.org/packages/coreArgs/1.0.0)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Geaz/coreArgs/master/LICENSE)
 [![Gitter](https://badges.gitter.im/geaz84/coreArgs.svg)](https://gitter.im/geaz84/coreArgs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
